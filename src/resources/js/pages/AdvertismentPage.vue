@@ -16,7 +16,7 @@
                         </p>
                         <div class="links">
                             <h4 class="text-[15px] font-bold">Ссылки</h4>
-                            <a :href="item" class="block text-blue-700 mb-[5px]" v-for="item in pageData.links">{{item}}</a>
+                            <a :href="item" class="block text-blue-700 mb-[5px]" v-for="item in pageData.links">{{item?item.slice(0,100)+'...':''}}</a>
                         </div>
                     </div>
                 </Container>

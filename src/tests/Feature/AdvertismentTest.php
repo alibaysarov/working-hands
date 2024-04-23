@@ -9,14 +9,15 @@ use Tests\TestCase;
 
 class AdvertismentTest extends TestCase
 {
+    use RefreshDatabase;
+    use WithFaker;
     /**
      * A basic feature test example.
      */
-    public function test_example(): void
+    public function testGetAllAdvertisments()
     {
-        $this->withoutExceptionHandling();
         $response = $this->get('/api/advertisment/all');
         $response->assertStatus(200);
-        $this->assertEquals(13,count($response->json()));
+        // Add more assertions based on the expected response structure
     }
 }

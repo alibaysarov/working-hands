@@ -27,5 +27,10 @@ class Api {
         const res = await instance.get(`/advertisment/${data.id}?fields=${fields}`);
         return res
     }
+
+    async create(data) {
+        const res = await instance.post(`/advertisment/create`,data);
+        return res
+    }
 }
 export default new Api()

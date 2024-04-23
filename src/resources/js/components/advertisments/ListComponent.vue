@@ -4,13 +4,23 @@
             <div>
                 <div class="flex justify-between mb-[25px]">
                     <h2 class="font-bold text-[25px] ">Доска объявлений</h2>
-                    <div class="sort">
-                        <p>Цена</p>
-                        <select @change="changeFunc" name="" id="" v-model="sortByPrice">
-                            <option value="asc">По возрастанию</option>
-                            <option value="desc">По убыванию</option>
-                        </select>
+                    <div class="sort flex gap-[10px]">
+                        <div class="flex gap-[5px] items-center">
+                            <p>Цена</p>
+                            <select  name="" id="" v-model="sortByPrice">
+                                <option value="asc">По возрастанию</option>
+                                <option value="desc">По убыванию</option>
+                            </select>
+                        </div>
+                        <div class="flex gap-[5px] items-center mr-[10px]">
+                            <p>Дата публикации</p>
+                            <select  name="" id="" v-model="sortByDate">
+                                <option value="asc">По возрастанию</option>
+                                <option value="desc">По убыванию</option>
+                            </select>
+                        </div>
                     </div>
+
                 </div>
                 <AdvertismentList :list="list"/>
                 <Pagination :prevFunc="prevClick" :nextFunc="nextClick" :clickFunc="clickHandler" v-if="list.length" :current="pageNum" :total="total_pages"/>
@@ -18,8 +28,7 @@
         </template>
         <template #fallback>
             <div>
-                <div>Loading list...</div>
-                <div>Loading pages...</div>
+                <SkeletonList/>
             </div>
 
 
@@ -31,6 +40,7 @@
 import {defineAsyncComponent, onMounted, ref, watch} from "vue";
 import api from "../../api/index.js";
 import {useRouter} from "vue-router";
+import SkeletonList from "./SkeletonList.vue";
 const AdvertismentList = defineAsyncComponent(()=>import ("./AdvertismentList.vue"))
 const Pagination = defineAsyncComponent(()=>import ("../Pagination.vue"))
 const list = ref([])
@@ -67,9 +77,7 @@ const getAdvertisments = ()=>{
         isLoading.value = false
     })
 }
-const changeFunc = ()=>{
-    console.log(sortByPrice.value)
-}
+
 onMounted(()=>{
     getAdvertisments()
 })

@@ -22,5 +22,10 @@ class Api {
         const res = await instance.get('/advertisment/all'+objectToUrlParams(data));
         return res.data
     }
+    async getOne(data) {
+        const fields = data.fields??false
+        const res = await instance.get(`/advertisment/${data.id}?fields=${fields}`);
+        return res
+    }
 }
 export default new Api()

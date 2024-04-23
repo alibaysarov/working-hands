@@ -10,13 +10,19 @@
 
 
             <div class="header__button">
-                <button class="px-[23px] py-[5px] text-white bg-blue-700 rounded-md">Разместить объявление</button>
+                <button @click="gotoNewAd" class="px-[23px] py-[5px] text-white bg-blue-700 rounded-md">Разместить объявление</button>
             </div>
         </div>
     </header>
 </template>
 <script setup>
-import {RouterLink} from "vue-router";
+import {RouterLink, useRouter} from "vue-router";
+const router = useRouter()
+const gotoNewAd = ()=>{
+    router.push({
+        name:"advertisment-create"
+    })
+}
 </script>
 <style lang="scss">
 .logo {

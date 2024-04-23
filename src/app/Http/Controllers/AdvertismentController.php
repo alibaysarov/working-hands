@@ -33,7 +33,7 @@ class AdvertismentController extends Controller
             if ($sortPrice) {
                 $advertisments = $advertisments->orderBy('price', strtoupper($sortPrice));
             }
-            $advertisments = $advertisments->select(['name', 'main_cover', 'price'])->paginate(10);
+            $advertisments = $advertisments->select(['id','name', 'main_cover', 'price'])->paginate(10);
             return response()->json($advertisments, 200);
         } catch (\Throwable $throwable) {
             return response()->json([], 500);

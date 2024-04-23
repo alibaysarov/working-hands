@@ -5,7 +5,7 @@
                 <div class="logo">
                     <h1>W <span class="text-blue-600">H</span></h1>
                 </div>
-                <h2 class="font-bold text-[25px]">Working hands</h2>
+                <h2 class="font-bold text-[20px]">Working hands</h2>
             </div>
 
 

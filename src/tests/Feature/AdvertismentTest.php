@@ -14,8 +14,9 @@ class AdvertismentTest extends TestCase
      */
     public function test_example(): void
     {
-        $response = $this->get('/');
+        $this->withoutExceptionHandling();
+        $response = $this->get('/api/advertisment/all');
         $response->assertStatus(200);
-
+        $this->assertEquals(13,count($response->json()));
     }
 }

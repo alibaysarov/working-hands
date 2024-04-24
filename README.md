@@ -7,7 +7,7 @@
 - docker-compose up -d
 - docker-compose run composer install
 - docker exec -it bash working-hands_php
-#### Внутри php контейнера php 
+#### Внутри контейнера php-fpm 
 - php artisan key:generate
 - php artisan migrate (для миграций)
 - php artisan db:seed (для записи моковых данных в бд)

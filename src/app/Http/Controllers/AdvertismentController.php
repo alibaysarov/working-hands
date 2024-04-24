@@ -51,7 +51,7 @@ class AdvertismentController extends Controller
                 return response()->json(['message' => 'not found'], 404);
             }
             if (!$hasFilelds) {
-                $advertisment = $advertisment->only(['name', 'main_cover', 'price']);
+                $advertisment = $advertisment->only(['id','name', 'main_cover', 'price']);
                 return response()->json($advertisment, 200);
             }
             $advertisment['links'] = json_decode($advertisment['links']);

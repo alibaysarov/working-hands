@@ -43,23 +43,27 @@ import {useRouter} from "vue-router";
 import SkeletonList from "./SkeletonList.vue";
 const AdvertismentList = defineAsyncComponent(()=>import ("./AdvertismentList.vue"))
 const Pagination = defineAsyncComponent(()=>import ("../Pagination.vue"))
+const router = useRouter();
+
 const list = ref([])
-const pageNum = ref(1);
+const pageNum = ref(router.currentRoute.value.params.page??1);
 const total_pages = ref(0);
 const isLoading = ref(true);
 const isError = ref(false);
-const router = useRouter();
 const clickHandler = (num)=>{
     pageNum.value = num;
 }
 const nextClick = ()=>{
     if(pageNum.value< total_pages.value) {
         pageNum.value+=1
+        router.push({name:"index",query: { page: pageNum.value }})
     }
 }
 const prevClick = ()=>{
     if(pageNum.value>1) {
         pageNum.value-=1
+        router.push({name:"index",query:{page:pageNum.value}})
+
     }
 }
 const sortByDate = ref("")

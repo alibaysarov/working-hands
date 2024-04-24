@@ -5,7 +5,9 @@ import NewAdvertisment from "../pages/NewAdvertisment.vue";
 const routes = [
     {
         path: '/',
-        component:Main
+        component:Main,
+        name:"index",
+        props: (route) => ({ page: route.query.page })
     },
     {
         path: '/advertisment/:id',

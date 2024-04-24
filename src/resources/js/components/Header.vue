@@ -1,7 +1,7 @@
 <template>
     <header class="header p-[20px] shadow-md">
         <div class="flex gap-[20px] justify-between items-center header__content">
-            <div class="flex items-center gap-2 header__logo ">
+            <div @click="$router.push('/')" class="flex items-center gap-2 header__logo cursor-pointer">
                 <div class="logo">
                     <h1>W <span class="text-blue-600">H</span></h1>
                 </div>
@@ -10,7 +10,10 @@
 
 
             <div class="header__button">
-                <button @click="gotoNewAd" class="px-[23px] py-[5px] text-white bg-blue-700 rounded-md">Разместить объявление</button>
+                <RouterLink to="/advertisment/create" class="px-[23px] py-[5px] text-white bg-blue-700 rounded-md">
+                    Разместить объявление
+                </RouterLink>
+
             </div>
         </div>
     </header>

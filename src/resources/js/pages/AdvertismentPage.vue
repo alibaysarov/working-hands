@@ -3,7 +3,7 @@
         <template #default>
             <div class="p-4">
                 <Container>
-                    <router-link to="/" class="text-gray-500 mb-[10px]">Назад</router-link>
+                    <p @click="$router.back()" class="text-gray-500 cursor-pointer mb-[10px]">Назад</p>
                     <h2 class="text-[35px] font-bold">{{ pageData.name }}</h2>
                     <h4 class="text-[25px]">Цена: {{pageData.price}}</h4>
                     <img :src="pageData.main_cover" class="mt-[10px]" width="550" alt="">

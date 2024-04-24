@@ -1,13 +1,13 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Unit;
 
 use App\Models\Advertisment;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
-class AdvertismentTest extends TestCase
+class ApiTest extends TestCase
 {
     use DatabaseTransactions;
     use WithFaker;

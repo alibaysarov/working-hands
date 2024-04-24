@@ -1,16 +1,19 @@
-## Docker Сборка (Laravel- React) 
-## Состав сборки
-- php-fpm
-- mysql
-- nginx
-- artisan
-- composer
+## Тестовое задание
+
 
 node.js нужно установить локально
-### Инструкция
+### Инструкция как запустить
 - Склонировать репозиторий
-- **docker-compose run composer create-project laravel/laravel .**
-- заполнить env для подключнеия к бд в ./src/.env и в env/mysql.env (в DB_HOST указать название сервиса)
-- создать сеть **docker network create laravel_react_app**
+- заполнить env для подключнеия к бд в ./src/.env и в env/mysql.env(DB_HOST=mysql DB_PORT=localhost)
+- создать сеть **docker network create working_hands_app**
 - docker-compose up -d
-- docker-compose run artisan migrate (для миграций)
+- docker-compose run composer install
+- docker exec -it bash working-hands_php
+#### Внутри php контейнера php 
+- php artisan key:generate
+- php artisan migrate (для миграций)
+- php artisan db:seed (для записи моковых данных в бд)
+#### Как запустить frontend
+- npm install
+- npm run dev
+- зайти на http://localhost:8000
